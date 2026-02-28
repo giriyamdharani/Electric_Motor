@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electric Motor Temperature Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Electric Motor Temperature Prediction using ML</h2>
+
+    <form action="/predict" method="POST">
+        
+        <label>Voltage (V)</label>
+        <input type="number" step="any" name="voltage" required>
+
+        <label>Current (A)</label>
+        <input type="number" step="any" name="current" required>
+
+        <label>Speed (RPM)</label>
+        <input type="number" step="any" name="speed" required>
+
+        <label>Torque (Nm)</label>
+        <input type="number" step="any" name="torque" required>
+
+        <button type="submit">Predict Temperature</button>
+    </form>
+
+    {% if prediction %}
+        <h3>Predicted Motor Temperature: {{ prediction }} °C</h3>
+    {% endif %}
+    <br>
+    <a href="/about">Go t About Page</a>
+</div>
+
+</body>
+</html>
